@@ -17,9 +17,9 @@ def index(request):
         data['first_name'] = request.session.get('first_name')
         data['last_name'] = request.session.get('last_name')
         try:
-            data['current_balance'] = trade.option.get_balance()
+            data['current_balance'] = 1000 #trade.option.get_balance()
             print(data['current_balance'])
-            asyncio.create_task(trade.start(name="live-deal-binary-option-placed", active="NZDUSD", _type="turbo"))
+            #asyncio.create_task(trade.start(name="live-deal-binary-option-placed", active="NZDUSD", _type="turbo"))
             return render(request, "index.html", data)
         except Exception:
             return redirect('/iqlogin')
@@ -51,7 +51,7 @@ def login(request):
             request.session['last_name'] = 'DADI'
             global trade
             try:
-                trade = Trade(email=form.data.get('email'), password=form.data.get('password'))
+                #trade = Trade(email=form.data.get('email'), password=form.data.get('password'))
                 return redirect('/', c)
             except:
                 redirect('/iqlogin')

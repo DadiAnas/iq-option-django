@@ -9,7 +9,7 @@
     <body>
         <h1>Some Line Charts loaded in Ajax!</h1>
 
-        <canvas id="myChart" width="400" height="400"></canvas>
+        <canvas id="myChart" width="300" height="300"></canvas>
 
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
         <script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
@@ -18,7 +18,7 @@
                 let ctx = $("#myChart").get(0).getContext("2d");
                 console.log(data)
                 new Chart(ctx, {
-                    type: 'bar', data: data
+                    type: 'line', data: data
                 });
             });
         </script>
